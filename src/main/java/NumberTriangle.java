@@ -91,7 +91,17 @@ public class NumberTriangle {
      */
     public int retrieve(String path) {
         // TODO implement this method
-        return -1;
+        NumberTriangle current = this;
+        for (int i = 0; i < path.length(); i++) {
+            if (path.charAt(i) == 'l') {
+                current = current.left;
+            }
+            else if (path.charAt(i) == 'r') {
+                current = current.right;
+            }
+        }
+        return current.getRoot();
+        //return -1;
     }
 
     /** Read in the NumberTriangle structure from a file.
